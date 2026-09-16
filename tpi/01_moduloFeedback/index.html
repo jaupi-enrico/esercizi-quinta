@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modulo di Feedback</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h2>Modulo di Feedback</h2>
+
+    <form id="formFeedback">
+
+      <div class="campo">
+        <label for="nome">Nome *</label>
+        <input type="text" id="nome" />
+      </div>
+
+      <div class="campo">
+        <label for="email">Email *</label>
+        <input type="email" id="email" />
+      </div>
+
+      <div class="campo">
+        <label for="data">Data *</label>
+        <input type="date" id="data" />
+      </div>
+
+      <div class="campo">
+        <label for="ora">Ora *</label>
+        <input type="time" id="ora" />
+      </div>
+
+      <div class="campo">
+        <label for="tipoFeedback">Tipo di feedback *</label>
+        <select id="tipoFeedback">
+          <option value="">Seleziona un tipo</option>
+          <option value="Positivo">Positivo</option>
+          <option value="Negativo">Negativo</option>
+          <option value="Suggerimento">Suggerimento</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="testoFeedback">Feedback *</label>
+        <textarea id="testoFeedback" rows="4"></textarea>
+      </div>
+
+      <div class="campo campo-checkbox">
+        <input type="checkbox" id="iscrizione" />
+        <label for="iscrizione">Iscrivimi alla newsletter</label>
+      </div>
+
+      <button type="submit">Invia feedback</button>
+
+    </form>
+
+    <p id="messaggioConferma"></p>
+
+    <table id="tabellaFeedback">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Data</th>
+          <th>Ora</th>
+          <th>Tipo</th>
+          <th>Feedback</th>
+          <th>Newsletter</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody id="corpoTabella"></tbody>
+    </table>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
