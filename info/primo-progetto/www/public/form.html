@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Richiesta corsi di lingua</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            max-width: 400px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        fieldset {
+            margin-top: 10px;
+            border: none;
+            padding: 0;
+        }
+        fieldset legend {
+            font-weight: bold;
+            padding: 0;
+        }
+        textarea {
+            width: 100%;
+            height: 60px;
+        }
+        .buttons {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<h1>Richiesta corsi di lingua</h1>
+
+<form action="form.php" method="post">
+    <label for="cognome">Cognome</label>
+    <input type="text" id="cognome" name="cognome" required>
+
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="lingua">Corso di lingua</label>
+    <select id="lingua" name="lingua" required>
+        <option value="">-- seleziona --</option>
+        <option value="Inglese">Inglese</option>
+        <option value="Francese">Francese</option>
+        <option value="Spagnolo">Spagnolo</option>
+        <option value="Tedesco">Tedesco</option>
+    </select>
+
+    <fieldset>
+        <legend>Livello:</legend>
+        <label><input type="radio" name="livello" value="Base" required> Base</label>
+        <label><input type="radio" name="livello" value="Intermedio"> Intermedio</label>
+        <label><input type="radio" name="livello" value="Avanzato"> Avanzato</label>
+    </fieldset>
+
+    <fieldset>
+        <legend>Preferenza orario:</legend>
+        <label><input type="checkbox" name="orario[]" value="Mattino"> Mattino</label>
+        <label><input type="checkbox" name="orario[]" value="Pomeriggio"> Pomeriggio</label>
+        <label><input type="checkbox" name="orario[]" value="Sera"> Sera</label>
+    </fieldset>
+
+    <label for="richieste">Altre richieste:</label>
+    <textarea id="richieste" name="richieste"></textarea>
+
+    <div class="buttons">
+        <button type="reset">Reset</button>
+        <button type="submit">Invia</button>
+    </div>
+</form>
+</body>
+</html>
