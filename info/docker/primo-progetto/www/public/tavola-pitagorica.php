@@ -2,30 +2,18 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tavola Pitagorica</title>
-    <style>
-        table {
-            border-collapse: collapse;
-        }
-        td, th {
-            border: 1px solid #333;
-            width: 30px;
-            height: 30px;
-            text-align: center;
-        }
-        th {
-            background-color: #ddd;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<div>
-    <h1>Tavola Pitagorica</h1>
+<div class="page wide" style="text-align: center; overflow-x: auto;">
+    <h1>🔢 Tavola Pitagorica</h1>
     <table>
         <?php
         $dimensione = 10;
 
-        echo "<tr><th>X</th>";
+        echo "<tr><th>×</th>";
         for ($colonna = 1; $colonna <= $dimensione; $colonna++) {
             echo "<th>" . $colonna . "</th>";
         }

@@ -2,79 +2,87 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Richiesta corsi di lingua</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        form {
-            max-width: 400px;
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-        fieldset {
-            margin-top: 10px;
-            border: none;
-            padding: 0;
-        }
-        fieldset legend {
-            font-weight: bold;
-            padding: 0;
-        }
-        textarea {
-            width: 100%;
-            height: 60px;
-        }
-        .buttons {
-            margin-top: 15px;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<h1>Richiesta corsi di lingua</h1>
+<div class="page">
+    <h1>🌍 Richiesta corsi di lingua</h1>
 
-<form action="form.php" method="post">
-    <label for="cognome">Cognome</label>
-    <input type="text" id="cognome" name="cognome" required>
+    <form action="form.php" method="post">
+        <div class="form-group">
+            <label for="cognome" class="required">Cognome</label>
+            <input type="text" id="cognome" name="cognome" required>
+        </div>
 
-    <label for="nome">Nome</label>
-    <input type="text" id="nome" name="nome" required>
+        <div class="form-group">
+            <label for="nome" class="required">Nome</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
+        <div class="form-group">
+            <label for="email" class="required">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
 
-    <label for="lingua">Corso di lingua</label>
-    <select id="lingua" name="lingua" required>
-        <option value="">-- seleziona --</option>
-        <option value="Inglese">Inglese</option>
-        <option value="Francese">Francese</option>
-        <option value="Spagnolo">Spagnolo</option>
-        <option value="Tedesco">Tedesco</option>
-    </select>
+        <div class="form-group">
+            <label for="lingua" class="required">Corso di lingua</label>
+            <select id="lingua" name="lingua" required>
+                <option value="">-- seleziona --</option>
+                <option value="Inglese">Inglese</option>
+                <option value="Francese">Francese</option>
+                <option value="Spagnolo">Spagnolo</option>
+                <option value="Tedesco">Tedesco</option>
+            </select>
+        </div>
 
-    <fieldset>
-        <legend>Livello:</legend>
-        <label><input type="radio" name="livello" value="Base" required> Base</label>
-        <label><input type="radio" name="livello" value="Intermedio"> Intermedio</label>
-        <label><input type="radio" name="livello" value="Avanzato"> Avanzato</label>
-    </fieldset>
+        <fieldset>
+            <legend class="required">Livello</legend>
+            <div class="radio-group">
+                <div class="radio-item">
+                    <input type="radio" id="base" name="livello" value="Base" required>
+                    <label for="base">Base</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="intermedio" name="livello" value="Intermedio">
+                    <label for="intermedio">Intermedio</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="avanzato" name="livello" value="Avanzato">
+                    <label for="avanzato">Avanzato</label>
+                </div>
+            </div>
+        </fieldset>
 
-    <fieldset>
-        <legend>Preferenza orario:</legend>
-        <label><input type="checkbox" name="orario[]" value="Mattino"> Mattino</label>
-        <label><input type="checkbox" name="orario[]" value="Pomeriggio"> Pomeriggio</label>
-        <label><input type="checkbox" name="orario[]" value="Sera"> Sera</label>
-    </fieldset>
+        <fieldset>
+            <legend>Preferenza orario</legend>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="mattino" name="orario[]" value="Mattino">
+                    <label for="mattino">Mattino</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="pomeriggio" name="orario[]" value="Pomeriggio">
+                    <label for="pomeriggio">Pomeriggio</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sera" name="orario[]" value="Sera">
+                    <label for="sera">Sera</label>
+                </div>
+            </div>
+        </fieldset>
 
-    <label for="richieste">Altre richieste:</label>
-    <textarea id="richieste" name="richieste"></textarea>
+        <div class="form-group">
+            <label for="richieste">Altre richieste</label>
+            <textarea id="richieste" name="richieste"></textarea>
+        </div>
 
-    <div class="buttons">
-        <button type="reset">Reset</button>
-        <button type="submit">Invia</button>
-    </div>
-</form>
+        <div class="buttons">
+            <button type="reset" class="btn-secondary">Reset</button>
+            <button type="submit" class="btn-primary">Invia</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>
