@@ -1,4 +1,6 @@
-const dati = [];
+const CHIAVE_STORAGE = "feedback";
+
+let dati = JSON.parse(localStorage.getItem(CHIAVE_STORAGE)) || [];
 
 const campi = [
   "nome",
@@ -13,6 +15,40 @@ const campi = [
 const form = document.getElementById("formFeedback");
 const messaggioConferma = document.getElementById("messaggioConferma");
 const corpoTabella = document.getElementById("corpoTabella");
+const bottoneEliminaTutto = document.getElementById("bottoneEliminaTutto");
+
+function salvaStorage() {
+  localStorage.setItem(CHIAVE_STORAGE, JSON.stringify(dati));
+}
+
+function creaRiga(dato) {
+  const riga = document.createElement("tr");
+
+  for (let i = 0; i < campi.length; i++) {
+    const cella = document.createElement("td");
+    cella.textContent = dato[campi[i]];
+    riga.appendChild(cella);
+  }
+
+  const cellaAzioni = document.createElement("td");
+  const bottoneElimina = document.createElement("button");
+  bottoneElimina.textContent = "Elimina";
+
+  bottoneElimina.addEventListener("click", function () {
+    riga.remove();
+    dati.splice(dati.indexOf(dato), 1);
+    salvaStorage();
+  });
+
+  cellaAzioni.appendChild(bottoneElimina);
+  riga.appendChild(cellaAzioni);
+
+  corpoTabella.appendChild(riga);
+}
+
+for (let i = 0; i < dati.length; i++) {
+  creaRiga(dati[i]);
+}
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -43,30 +79,17 @@ form.addEventListener("submit", function (event) {
   };
 
   dati.push(dato);
+  salvaStorage();
 
-  const riga = document.createElement("tr");
-
-  for (let i = 0; i < campi.length; i++) {
-    const cella = document.createElement("td");
-    cella.textContent = dato[campi[i]];
-    riga.appendChild(cella);
-  }
-
-  const cellaAzioni = document.createElement("td");
-  const bottoneElimina = document.createElement("button");
-  bottoneElimina.textContent = "Elimina";
-
-  bottoneElimina.addEventListener("click", function () {
-    riga.remove();
-    dati.splice(dati.indexOf(dato), 1);
-  });
-
-  cellaAzioni.appendChild(bottoneElimina);
-  riga.appendChild(cellaAzioni);
-
-  corpoTabella.appendChild(riga);
+  creaRiga(dato);
 
   messaggioConferma.textContent = "Feedback inviato con successo!";
 
   form.reset();
+});
+
+bottoneEliminaTutto.addEventListener("click", function () {
+  dati = [];
+  salvaStorage();
+  corpoTabella.innerHTML = "";
 });
