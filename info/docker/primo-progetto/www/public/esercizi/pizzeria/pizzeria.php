@@ -33,102 +33,91 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prenotazione Pizzeria</title>
-    <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-<div class="page">
-    <h1>🍕 Prenotazione Pizzeria</h1>
+<main>
+    <h1>Prenotazione Pizzeria</h1>
 
     <?php if (!empty($errori)): ?>
-        <div class="alert alert-error">
-            <h2>⚠️ Attenzione!</h2>
-            <p>Inserisci tutti i dati obbligatori:</p>
-            <ul>
-                <?php foreach ($errori as $errore): ?>
-                    <li><?= htmlspecialchars($errore) ?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
+        <h2>Attenzione!</h2>
+        <p>Inserisci tutti i dati obbligatori:</p>
+        <ul>
+            <?php foreach ($errori as $errore): ?>
+                <li><?= htmlspecialchars($errore) ?></li>
+            <?php endforeach; ?>
+        </ul>
     <?php endif; ?>
 
     <?php if ($ordine_confermato): ?>
-        <div class="alert alert-success">
-            <h2>✓ Ordine effettuato correttamente!</h2>
-            <div class="summary-item">
-                <span class="summary-label">Nome:</span>
-                <span class="summary-value"><?= htmlspecialchars($nome) ?></span>
-            </div>
-            <div class="summary-item">
-                <span class="summary-label">Email:</span>
-                <span class="summary-value"><?= htmlspecialchars($email) ?></span>
-            </div>
-            <div class="summary-item">
-                <span class="summary-label">Telefono:</span>
-                <span class="summary-value"><?= htmlspecialchars($telefono) ?></span>
-            </div>
-            <div class="summary-item">
-                <span class="summary-label">Sistemazione:</span>
-                <span class="summary-value"><?= htmlspecialchars($sistemazione) ?></span>
-            </div>
-            <div class="summary-item">
-                <span class="summary-label">Pizza:</span>
-                <span class="summary-value"><?= htmlspecialchars($pizza) ?></span>
-            </div>
-            <div class="summary-item">
-                <span class="summary-label">Impasto:</span>
-                <span class="summary-value"><?= htmlspecialchars($impasto) ?></span>
-            </div>
+        <h2>Ordine effettuato correttamente!</h2>
+        <table border="1">
+            <tr>
+                <td>Nome:</td>
+                <td><?= htmlspecialchars($nome) ?></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><?= htmlspecialchars($email) ?></td>
+            </tr>
+            <tr>
+                <td>Telefono:</td>
+                <td><?= htmlspecialchars($telefono) ?></td>
+            </tr>
+            <tr>
+                <td>Sistemazione:</td>
+                <td><?= htmlspecialchars($sistemazione) ?></td>
+            </tr>
+            <tr>
+                <td>Pizza:</td>
+                <td><?= htmlspecialchars($pizza) ?></td>
+            </tr>
+            <tr>
+                <td>Impasto:</td>
+                <td><?= htmlspecialchars($impasto) ?></td>
+            </tr>
             <?php if (!empty($aggiunte)): ?>
-                <div class="summary-item">
-                    <span class="summary-label">Aggiunte:</span>
-                    <span class="summary-value"><?= htmlspecialchars(implode(', ', $aggiunte)) ?></span>
-                </div>
+                <tr>
+                    <td>Aggiunte:</td>
+                    <td><?= htmlspecialchars(implode(', ', $aggiunte)) ?></td>
+                </tr>
             <?php endif; ?>
             <?php if ($note !== ''): ?>
-                <div class="summary-item">
-                    <span class="summary-label">Note:</span>
-                    <span class="summary-value"><?= htmlspecialchars($note) ?></span>
-                </div>
+                <tr>
+                    <td>Note:</td>
+                    <td><?= htmlspecialchars($note) ?></td>
+                </tr>
             <?php endif; ?>
-        </div>
-        <a href="pizzeria.php" class="btn btn-primary" style="display: block; text-align: center;">← Nuova Prenotazione</a>
+        </table>
+        <p><a href="pizzeria.php">Nuova Prenotazione</a></p>
     <?php else: ?>
         <form method="POST" action="">
-            <div class="form-group">
-                <label for="nome" class="required">Nome e Cognome</label>
+            <p>
+                <label for="nome">Nome e Cognome (*)</label><br>
                 <input type="text" id="nome" name="nome" placeholder="Es. Mario Rossi" value="<?= htmlspecialchars($nome) ?>">
-            </div>
+            </p>
 
-            <div class="form-group">
-                <label for="email" class="required">Email</label>
+            <p>
+                <label for="email">Email (*)</label><br>
                 <input type="email" id="email" name="email" placeholder="Es. mario@example.com" value="<?= htmlspecialchars($email) ?>">
-            </div>
+            </p>
 
-            <div class="form-group">
-                <label for="telefono" class="required">Telefono</label>
+            <p>
+                <label for="telefono">Telefono (*)</label><br>
                 <input type="text" id="telefono" name="telefono" placeholder="Es. 333 123 4567" value="<?= htmlspecialchars($telefono) ?>">
-            </div>
+            </p>
 
             <fieldset>
-                <legend class="required">Tipo di sistemazione</legend>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="tavolo" name="sistemazione" value="Tavolo" <?= $sistemazione === 'Tavolo' ? 'checked' : '' ?>>
-                        <label for="tavolo">Tavolo</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="bancone" name="sistemazione" value="Bancone" <?= $sistemazione === 'Bancone' ? 'checked' : '' ?>>
-                        <label for="bancone">Bancone</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="terrazza" name="sistemazione" value="Terrazza" <?= $sistemazione === 'Terrazza' ? 'checked' : '' ?>>
-                        <label for="terrazza">Terrazza</label>
-                    </div>
-                </div>
+                <legend>Tipo di sistemazione (*)</legend>
+                <input type="radio" id="tavolo" name="sistemazione" value="Tavolo" <?= $sistemazione === 'Tavolo' ? 'checked' : '' ?>>
+                <label for="tavolo">Tavolo</label><br>
+                <input type="radio" id="bancone" name="sistemazione" value="Bancone" <?= $sistemazione === 'Bancone' ? 'checked' : '' ?>>
+                <label for="bancone">Bancone</label><br>
+                <input type="radio" id="terrazza" name="sistemazione" value="Terrazza" <?= $sistemazione === 'Terrazza' ? 'checked' : '' ?>>
+                <label for="terrazza">Terrazza</label>
             </fieldset>
 
-            <div class="form-group">
-                <label for="pizza" class="required">Tipo di pizza</label>
+            <p>
+                <label for="pizza">Tipo di pizza (*)</label><br>
                 <select id="pizza" name="pizza">
                     <option value="">-- Seleziona --</option>
                     <option value="Margherita" <?= $pizza === 'Margherita' ? 'selected' : '' ?>>Margherita</option>
@@ -140,63 +129,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <option value="Carnivora" <?= $pizza === 'Carnivora' ? 'selected' : '' ?>>Carnivora</option>
                     <option value="Vegetariana" <?= $pizza === 'Vegetariana' ? 'selected' : '' ?>>Vegetariana</option>
                 </select>
-            </div>
+            </p>
 
             <fieldset>
-                <legend class="required">Tipo di impasto</legend>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="classico" name="impasto" value="Classico" <?= $impasto === 'Classico' ? 'checked' : '' ?>>
-                        <label for="classico">Classico</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="integrale" name="impasto" value="Integrale" <?= $impasto === 'Integrale' ? 'checked' : '' ?>>
-                        <label for="integrale">Integrale</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="senzaglutine" name="impasto" value="Senza Glutine" <?= $impasto === 'Senza Glutine' ? 'checked' : '' ?>>
-                        <label for="senzaglutine">Senza Glutine</label>
-                    </div>
-                </div>
+                <legend>Tipo di impasto (*)</legend>
+                <input type="radio" id="classico" name="impasto" value="Classico" <?= $impasto === 'Classico' ? 'checked' : '' ?>>
+                <label for="classico">Classico</label><br>
+                <input type="radio" id="integrale" name="impasto" value="Integrale" <?= $impasto === 'Integrale' ? 'checked' : '' ?>>
+                <label for="integrale">Integrale</label><br>
+                <input type="radio" id="senzaglutine" name="impasto" value="Senza Glutine" <?= $impasto === 'Senza Glutine' ? 'checked' : '' ?>>
+                <label for="senzaglutine">Senza Glutine</label>
             </fieldset>
 
             <fieldset>
                 <legend>Aggiunte (opzionali)</legend>
-                <div class="checkbox-group">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="formaggio" name="aggiunte[]" value="Formaggio Extra" <?= in_array('Formaggio Extra', $aggiunte) ? 'checked' : '' ?>>
-                        <label for="formaggio">Formaggio Extra</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="bacon" name="aggiunte[]" value="Bacon" <?= in_array('Bacon', $aggiunte) ? 'checked' : '' ?>>
-                        <label for="bacon">Bacon</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="verdure" name="aggiunte[]" value="Verdure Grigliate" <?= in_array('Verdure Grigliate', $aggiunte) ? 'checked' : '' ?>>
-                        <label for="verdure">Verdure Grigliate</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="peperoni" name="aggiunte[]" value="Peperoni" <?= in_array('Peperoni', $aggiunte) ? 'checked' : '' ?>>
-                        <label for="peperoni">Peperoni</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="cipolla" name="aggiunte[]" value="Cipolla Caramellata" <?= in_array('Cipolla Caramellata', $aggiunte) ? 'checked' : '' ?>>
-                        <label for="cipolla">Cipolla Caramellata</label>
-                    </div>
-                </div>
+                <input type="checkbox" id="formaggio" name="aggiunte[]" value="Formaggio Extra" <?= in_array('Formaggio Extra', $aggiunte) ? 'checked' : '' ?>>
+                <label for="formaggio">Formaggio Extra</label><br>
+                <input type="checkbox" id="bacon" name="aggiunte[]" value="Bacon" <?= in_array('Bacon', $aggiunte) ? 'checked' : '' ?>>
+                <label for="bacon">Bacon</label><br>
+                <input type="checkbox" id="verdure" name="aggiunte[]" value="Verdure Grigliate" <?= in_array('Verdure Grigliate', $aggiunte) ? 'checked' : '' ?>>
+                <label for="verdure">Verdure Grigliate</label><br>
+                <input type="checkbox" id="peperoni" name="aggiunte[]" value="Peperoni" <?= in_array('Peperoni', $aggiunte) ? 'checked' : '' ?>>
+                <label for="peperoni">Peperoni</label><br>
+                <input type="checkbox" id="cipolla" name="aggiunte[]" value="Cipolla Caramellata" <?= in_array('Cipolla Caramellata', $aggiunte) ? 'checked' : '' ?>>
+                <label for="cipolla">Cipolla Caramellata</label>
             </fieldset>
 
-            <div class="form-group">
-                <label for="note">Note aggiuntive</label>
+            <p>
+                <label for="note">Note aggiuntive</label><br>
                 <textarea id="note" name="note" placeholder="Es. Niente cipolla, allergico ai crostacei..."><?= htmlspecialchars($note) ?></textarea>
-            </div>
+            </p>
 
-            <div class="buttons">
-                <button type="reset" class="btn-secondary">Reset</button>
-                <button type="submit" class="btn-primary">Invia Prenotazione</button>
-            </div>
+            <p>
+                <button type="reset">Reset</button>
+                <button type="submit">Invia Prenotazione</button>
+            </p>
         </form>
     <?php endif; ?>
-</div>
+</main>
 </body>
 </html>

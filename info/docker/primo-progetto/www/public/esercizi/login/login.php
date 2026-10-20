@@ -6,24 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accesso Area Riservata</title>
-    <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-    <div class="page narrow">
-        <h1>🔑 Accesso Area Riservata</h1>
+    <main>
+        <h1>Accesso Area Riservata</h1>
         <form method="POST" action="controllo.php">
-            <div class="form-group">
-                <label for="username" class="required">Username</label>
+            <p>
+                <label for="username">Username (*)</label><br>
                 <input type="text" id="username" name="username" required>
-            </div>
+            </p>
 
-            <div class="form-group">
-                <label for="password" class="required">Password</label>
+            <p>
+                <label for="password">Password (*)</label><br>
                 <input type="password" id="password" name="password" required>
-            </div>
+            </p>
 
-            <button type="submit" class="btn-primary" style="width: 100%;">Accedi</button>
+            <button type="submit">Accedi</button>
         </form>
-    </div>
+    </main>
 </body>
 </html>

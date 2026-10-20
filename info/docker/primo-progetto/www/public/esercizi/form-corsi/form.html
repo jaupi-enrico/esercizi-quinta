@@ -4,30 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Richiesta corsi di lingua</title>
-    <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-<div class="page">
-    <h1>🌍 Richiesta corsi di lingua</h1>
+<main>
+    <h1>Richiesta corsi di lingua</h1>
 
     <form action="form.php" method="post">
-        <div class="form-group">
-            <label for="cognome" class="required">Cognome</label>
+        <p>
+            <label for="cognome">Cognome (*)</label><br>
             <input type="text" id="cognome" name="cognome" required>
-        </div>
+        </p>
 
-        <div class="form-group">
-            <label for="nome" class="required">Nome</label>
+        <p>
+            <label for="nome">Nome (*)</label><br>
             <input type="text" id="nome" name="nome" required>
-        </div>
+        </p>
 
-        <div class="form-group">
-            <label for="email" class="required">Email</label>
+        <p>
+            <label for="email">Email (*)</label><br>
             <input type="email" id="email" name="email" required>
-        </div>
+        </p>
 
-        <div class="form-group">
-            <label for="lingua" class="required">Corso di lingua</label>
+        <p>
+            <label for="lingua">Corso di lingua (*)</label><br>
             <select id="lingua" name="lingua" required>
                 <option value="">-- seleziona --</option>
                 <option value="Inglese">Inglese</option>
@@ -35,54 +34,38 @@
                 <option value="Spagnolo">Spagnolo</option>
                 <option value="Tedesco">Tedesco</option>
             </select>
-        </div>
+        </p>
 
         <fieldset>
-            <legend class="required">Livello</legend>
-            <div class="radio-group">
-                <div class="radio-item">
-                    <input type="radio" id="base" name="livello" value="Base" required>
-                    <label for="base">Base</label>
-                </div>
-                <div class="radio-item">
-                    <input type="radio" id="intermedio" name="livello" value="Intermedio">
-                    <label for="intermedio">Intermedio</label>
-                </div>
-                <div class="radio-item">
-                    <input type="radio" id="avanzato" name="livello" value="Avanzato">
-                    <label for="avanzato">Avanzato</label>
-                </div>
-            </div>
+            <legend>Livello (*)</legend>
+            <input type="radio" id="base" name="livello" value="Base" required>
+            <label for="base">Base</label><br>
+            <input type="radio" id="intermedio" name="livello" value="Intermedio">
+            <label for="intermedio">Intermedio</label><br>
+            <input type="radio" id="avanzato" name="livello" value="Avanzato">
+            <label for="avanzato">Avanzato</label>
         </fieldset>
 
         <fieldset>
             <legend>Preferenza orario</legend>
-            <div class="checkbox-group">
-                <div class="checkbox-item">
-                    <input type="checkbox" id="mattino" name="orario[]" value="Mattino">
-                    <label for="mattino">Mattino</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="pomeriggio" name="orario[]" value="Pomeriggio">
-                    <label for="pomeriggio">Pomeriggio</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="sera" name="orario[]" value="Sera">
-                    <label for="sera">Sera</label>
-                </div>
-            </div>
+            <input type="checkbox" id="mattino" name="orario[]" value="Mattino">
+            <label for="mattino">Mattino</label><br>
+            <input type="checkbox" id="pomeriggio" name="orario[]" value="Pomeriggio">
+            <label for="pomeriggio">Pomeriggio</label><br>
+            <input type="checkbox" id="sera" name="orario[]" value="Sera">
+            <label for="sera">Sera</label>
         </fieldset>
 
-        <div class="form-group">
-            <label for="richieste">Altre richieste</label>
+        <p>
+            <label for="richieste">Altre richieste</label><br>
             <textarea id="richieste" name="richieste"></textarea>
-        </div>
+        </p>
 
-        <div class="buttons">
-            <button type="reset" class="btn-secondary">Reset</button>
-            <button type="submit" class="btn-primary">Invia</button>
-        </div>
+        <p>
+            <button type="reset">Reset</button>
+            <button type="submit">Invia</button>
+        </p>
     </form>
-</div>
+</main>
 </body>
 </html>

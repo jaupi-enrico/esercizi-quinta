@@ -20,44 +20,41 @@ if ($livello === '') $errori[] = 'Il livello è obbligatorio.';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= !empty($errori) ? 'Richiesta non valida' : 'Riepilogo richiesta' ?></title>
-    <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-<div class="page">
+<main>
     <?php if (!empty($errori)): ?>
-        <h1>🌍 Richiesta corsi di lingua</h1>
-        <div class="alert alert-error">
-            <h2>⚠️ Richiesta non valida</h2>
-            <p>Inserisci tutti i dati obbligatori:</p>
-            <ul>
-                <?php foreach ($errori as $errore): ?>
-                    <li><?= htmlspecialchars($errore) ?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-        <a href="form.html" class="btn btn-primary" style="display: block;">Torna al modulo</a>
+        <h1>Richiesta corsi di lingua</h1>
+        <h2>Richiesta non valida</h2>
+        <p>Inserisci tutti i dati obbligatori:</p>
+        <ul>
+            <?php foreach ($errori as $errore): ?>
+                <li><?= htmlspecialchars($errore) ?></li>
+            <?php endforeach; ?>
+        </ul>
+        <p><a href="form.html">Torna al modulo</a></p>
     <?php else: ?>
-        <h1>✅ Richiesta inviata</h1>
-        <div class="alert alert-success" style="text-align: left;">
-            <div class="summary-item">
-                <span class="summary-label">Nome:</span>
-                <span class="summary-value"><?= htmlspecialchars($cognome) ?> <?= htmlspecialchars($nome) ?></span>
-            </div>
-            <div class="summary-item">
-                <span class="summary-label">Corso:</span>
-                <span class="summary-value"><?= htmlspecialchars($lingua) ?> - livello <?= htmlspecialchars($livello) ?></span>
-            </div>
-            <div class="summary-item">
-                <span class="summary-label">Orari preferiti:</span>
-                <span class="summary-value"><?= $orari ? htmlspecialchars(implode(', ', $orari)) : 'nessuna preferenza' ?></span>
-            </div>
-            <div class="summary-item">
-                <span class="summary-label">Altre richieste:</span>
-                <span class="summary-value"><?= $richieste !== '' ? htmlspecialchars($richieste) : 'nessuna' ?></span>
-            </div>
-        </div>
-        <p style="text-align: center;">Stiamo verificando tutti i dati, le invieremo la risposta a <strong><?= htmlspecialchars($email) ?></strong></p>
+        <h1>Richiesta inviata</h1>
+        <table border="1">
+            <tr>
+                <td>Nome:</td>
+                <td><?= htmlspecialchars($cognome) ?> <?= htmlspecialchars($nome) ?></td>
+            </tr>
+            <tr>
+                <td>Corso:</td>
+                <td><?= htmlspecialchars($lingua) ?> - livello <?= htmlspecialchars($livello) ?></td>
+            </tr>
+            <tr>
+                <td>Orari preferiti:</td>
+                <td><?= $orari ? htmlspecialchars(implode(', ', $orari)) : 'nessuna preferenza' ?></td>
+            </tr>
+            <tr>
+                <td>Altre richieste:</td>
+                <td><?= $richieste !== '' ? htmlspecialchars($richieste) : 'nessuna' ?></td>
+            </tr>
+        </table>
+        <p>Stiamo verificando tutti i dati, le invieremo la risposta a <strong><?= htmlspecialchars($email) ?></strong></p>
     <?php endif; ?>
-</div>
+</main>
 </body>
 </html>
