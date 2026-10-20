@@ -1,0 +1,298 @@
+/* Stile condiviso per tutti i progetti didattici */
+
+:root {
+    --accent: #4f46e5;
+    --accent-hover: #4338ca;
+    --accent-soft: #eef2ff;
+    --text: #1f2430;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --bg: #f7f7fb;
+    --surface: #ffffff;
+    --success: #15803d;
+    --success-bg: #f0fdf4;
+    --success-border: #bbf7d0;
+    --error: #b91c1c;
+    --error-bg: #fef2f2;
+    --error-border: #fecaca;
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    line-height: 1.5;
+}
+
+.page {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(17, 24, 39, 0.06);
+    padding: 36px;
+    width: 100%;
+    max-width: 480px;
+}
+
+.page.wide {
+    max-width: 700px;
+}
+
+.page.narrow {
+    max-width: 380px;
+}
+
+h1 {
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.required::after {
+    content: ' *';
+    color: var(--error);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--surface);
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 18px;
+}
+
+fieldset legend {
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+    font-size: 13px;
+    padding: 0;
+}
+
+.checkbox-group,
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checkbox-item,
+.radio-item {
+    display: flex;
+    align-items: center;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+    accent-color: var(--accent);
+}
+
+.checkbox-item label,
+.radio-item label {
+    margin: 0;
+    font-weight: 400;
+    cursor: pointer;
+    display: inline;
+    font-size: 14px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+button,
+.btn {
+    display: inline-block;
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.15s, border-color 0.15s;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-secondary {
+    background-color: var(--surface);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.btn-secondary:hover {
+    background-color: #f3f4f6;
+}
+
+/* Messaggi */
+.alert {
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border: 1px solid transparent;
+}
+
+.alert h2 {
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.alert ul {
+    margin-left: 18px;
+    margin-top: 8px;
+}
+
+.alert li {
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.alert-error {
+    background-color: var(--error-bg);
+    color: var(--error);
+    border-color: var(--error-border);
+}
+
+.alert-error h2 {
+    color: var(--error);
+}
+
+.alert-success {
+    background-color: var(--success-bg);
+    color: var(--success);
+    border-color: var(--success-border);
+    text-align: center;
+}
+
+.alert-success h2 {
+    color: var(--success);
+}
+
+/* Riepilogo */
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--success-border);
+    text-align: left;
+    font-size: 14px;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.summary-label {
+    font-weight: 500;
+    color: var(--text);
+    flex-shrink: 0;
+}
+
+.summary-value {
+    color: var(--text-muted);
+    text-align: right;
+}
+
+/* Tabelle */
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+td, th {
+    border: 1px solid var(--border);
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text);
+}
+
+th {
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even) td {
+    background-color: #fafafa;
+}

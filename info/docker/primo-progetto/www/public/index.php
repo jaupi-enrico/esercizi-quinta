@@ -135,8 +135,8 @@ $app->get('/', function (Request $request, Response $response) {
                 </div>
                 <div class="project-body">
                     <p class="project-description">Primo progetto di prova con Hello World in HTML e PHP.</p>
-                    <a href="hello-world.html" class="project-link">Visualizza HTML</a>
-                    <a href="hello-world.php" class="project-link">Visualizza PHP</a>
+                    <a href="esercizi/hello-world/hello-world.html" class="project-link">Visualizza HTML</a>
+                    <a href="esercizi/hello-world/hello-world.php" class="project-link">Visualizza PHP</a>
                 </div>
             </div>
 
@@ -148,7 +148,7 @@ $app->get('/', function (Request $request, Response $response) {
                 </div>
                 <div class="project-body">
                     <p class="project-description">Modulo di richiesta per corsi di lingua con validazione server-side.</p>
-                    <a href="form.html" class="project-link">Apri Form</a>
+                    <a href="esercizi/form-corsi/form.html" class="project-link">Apri Form</a>
                 </div>
             </div>
 
@@ -160,7 +160,7 @@ $app->get('/', function (Request $request, Response $response) {
                 </div>
                 <div class="project-body">
                     <p class="project-description">Generazione dinamica della tavola pitagorica con PHP.</p>
-                    <a href="tavola-pitagorica.php" class="project-link">Visualizza</a>
+                    <a href="esercizi/tavola-pitagorica/tavola-pitagorica.php" class="project-link">Visualizza</a>
                 </div>
             </div>
 
@@ -172,7 +172,7 @@ $app->get('/', function (Request $request, Response $response) {
                 </div>
                 <div class="project-body">
                     <p class="project-description">Sistema di login con validazione password e gestione sessioni.</p>
-                    <a href="login.php" class="project-link">Accedi</a>
+                    <a href="esercizi/login/login.php" class="project-link">Accedi</a>
                 </div>
             </div>
 
@@ -183,8 +183,8 @@ $app->get('/', function (Request $request, Response $response) {
                     <span class="project-type">Form/PHP</span>
                 </div>
                 <div class="project-body">
-                    <p class="project-description">Sistema di prenotazione per pizzeria con validazione form e riepilogo ordine.</p>
-                    <a href="pizzeria.php" class="project-link">Apri Form</a>
+                    <p class="project-description">Sistema di prenotazione per pizzeria con validazione form-corsi e riepilogo ordine.</p>
+                    <a href="esercizi/pizzeria/pizzeria.php" class="project-link">Apri Form</a>
                 </div>
             </div>
 
@@ -196,7 +196,7 @@ $app->get('/', function (Request $request, Response $response) {
                 </div>
                 <div class="project-body">
                     <p class="project-description">Area protetta accessibile solo dopo autenticazione.</p>
-                    <a href="area_riservata.php" class="project-link">Accedi</a>
+                    <a href="esercizi/login/area_riservata.php" class="project-link">Accedi</a>
                 </div>
             </div>
         </div>
