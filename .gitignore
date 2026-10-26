@@ -1,0 +1,7 @@
+# Dia: autosave e backup
+*.dia.autosave
+*.dia.autosave~
+*.dia~
+
+# PNG esportati da Dia
+info/er_diagrams/*.png
