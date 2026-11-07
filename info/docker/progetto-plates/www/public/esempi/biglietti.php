@@ -4,7 +4,7 @@ require '../vendor/autoload.php';
 
 use League\Plates\Engine;
 
-$templates = new Engine('../templates', 'tpl');
+$templates = new Engine('../../templates/esempi', 'tpl');
 
 $zone = [1 => 1.4, 2 => 1.8, 3 => 2.2];
 $tipi = [
