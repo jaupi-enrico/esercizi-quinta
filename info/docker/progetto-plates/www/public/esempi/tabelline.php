@@ -1,10 +1,11 @@
 <?php
 
 require '../../vendor/autoload.php';
+
 use League\Plates\Engine;
 
-$templates = new Engine('../../templates/esempi', 'tpl');
+$template = new Engine('../../templates', 'tpl');
 
-echo $templates->render('tabelline',
-
+echo $template->render('tabelline',
+    ['titolo' => 'Elenco delle tabelline']
 );

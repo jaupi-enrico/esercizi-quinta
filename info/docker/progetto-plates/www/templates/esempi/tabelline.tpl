@@ -1,10 +1,13 @@
-<?php $this->layout('layout', ['titolo' => 'Elenco tabelline']) ?>
+<?php $this->layout('layout', [
+        'titolo' => $titolo
+]); ?>
 <main>
+    <h1>Tabelline</h1>
+
     <ul>
-        <?php
-        for($i = 0; $i < 10; $i++) {
-            echo "<li>$i</li>";
-        }
-        ?>
+        <?php for ($i = 1; $i <= 10; $i++): ?>
+            <li><a href="tabellina.tpl?numero=<?= $i ?>"> Tabellina numero <?= $i ?></a ></li>
+        <?php endfor; ?>
     </ul>
+
 </main>
